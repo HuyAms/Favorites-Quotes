@@ -11,10 +11,16 @@ export class QuotesService {
     const position = this.favoriteQuotes.findIndex((quoteEl: Quote) => {
       return quoteEl.id == quote.id;
     });
-    this.favoriteQuotes.slice(position, 1);
+    this.favoriteQuotes.splice(position, 1);
   }
 
   getFavoriteQuotes() {
     return this.favoriteQuotes.slice();
+  }
+
+  isQuoteFavorite(quote: Quote) {
+    return this.favoriteQuotes.find((quoteEl: Quote) => {
+      return quoteEl.id == quote.id;
+    });
   }
 }

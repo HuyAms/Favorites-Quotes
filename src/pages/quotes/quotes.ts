@@ -45,8 +45,16 @@ export class QuotesPage implements OnInit {
         }
       ]
     });
-
     alert.present();
+  }
+
+  onRemoveFromFavorite(quote: Quote) {
+    console.log(quote.id);
+    this.quoteService.removeQuoteFromFavorite(quote);
+  }
+
+  isFavorite(quote: Quote) {
+    return this.quoteService.isQuoteFavorite(quote);
   }
 
   // ionViewDidLoad() {
